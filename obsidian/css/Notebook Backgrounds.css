@@ -1,0 +1,794 @@
+/*------------------------------------------------------------------------------
+              Notebook Background Color Schemes inspired by CyanVoxel v2.2.3
+
+These a few CSS classes that mimic a few of my real-world pages and pen colors.
+Go ahead and try it out! You can change or add new color variables or entire new
+classes and combinations. Inside Obsidian, apply a page class with an optional
+pen color class to see the effects. Add the recolor-images class to recolor
+the images in your notes, too!
+
+Website used to generate Color Filters:
+https://angel-rs.github.io/css-color-filter-generator
+                
+------------------------------------------------------------------------------*/
+
+/* Global Variables */
+:root {
+  /* Base Pen Colors */
+  --pen-white: #edf1fc;
+  --pen-gray: #5f5d58;
+  --pen-black: #26241f;
+  --pen-red: #e14a49;
+  --pen-green: #15b64f;
+  --pen-blue: #3f76ed;
+  --pen-light-blue: #54b6f8;
+  --pen-purple: #9b4ff0;
+  --pen-lgreen: #92e649;
+  --pen-dblue: #3b87f0;
+  --pen-yellow: #ffd63d;
+
+  --neutral-pen-black: #272727;
+  --neutral-pen-black-trans: #27272722;
+
+  /* Page Colors */
+  --page-white: #ffffff;
+  --page-manila: #f3deaf;
+  --page-blue: #3f76ed;
+  --page-green: #e9f9b7;
+  --page-dblue: #aedbfa;
+  --page-brown: #fff3c4;
+  --page-purple: #1a1625;
+
+  /* Additional page colors */
+  --page-sunset: #1a1008;
+
+  --grid-size: 32px;
+
+  /* Code syntax highlighting colors */
+  --color-red: #ff6188;
+
+  /* GitHub code syntax colors */
+  --color-keyword: #cf222e;     /* red - keywords */
+  --color-function: #8250df;    /* purple - functions */
+  --color-string: #0a3069;      /* dark blue - strings */
+  --color-comment: #6e7781;     /* gray - comments */
+  --color-variable: #24292f;    /* black - variables */
+  --color-number: #0550ae;      /* blue - numbers */
+  --color-constant: #0550ae;    /* blue - constants */
+  --color-class: #953800;       /* brown - classes */
+  --color-operator: #24292f;    /* black - operators */
+  --color-punctuation: #24292f; /* black - punctuation */
+
+}
+
+/* Recolors images on the page with the current accent color. */
+.recolor-images img {
+  filter: var(--image-effect);
+}
+
+/* ---------------------------- Page Backgrounds ---------------------------- */
+/* All Pages */
+.page-rainbow,
+.page-purple,
+.page-sunset,
+.page-manila,
+.page-white,
+.page-blueprint,
+.page-green,
+.page-dblue,
+.page-brown {
+  --text-normal: var(--accent-color);
+  --text-muted: var(--accent-color);
+  --text-faint: var(--accent-color-trans);
+  --h1-color: var(--accent-color);
+  --h2-color: var(--accent-color);
+  --h3-color: var(--accent-color);
+  --h4-color: var(--accent-color);
+  --h5-color: var(--accent-color);
+  --h6-color: var(--accent-color);
+  --link-color: var(--pen-blue);
+  --link-color-hover: var(--pen-light-blue);
+  --link-unresolved-color: var(--pen-red);
+
+  --callout-quote: var(--accent-color);
+
+  --hr-color: var(--accent-color);
+  --blockquote-border-color: var(--accent-color);
+  --embed-border-left: 2px solid var(--accent-color);
+  --collapse-icon-color-collapsed: var(--accent-color);
+  --checkbox-color: var(--accent-color);
+  --checkbox-marker-color: var(--page-color);
+  --checkbox-color-hover: var(--accent-color-trans);
+  --checkbox-border-color: var(--accent-color);
+  --checklist-done-color: var(--accent-color);
+  --list-marker-color: var(--accent-color);
+
+  --interactive-accent: var(--accent-color);
+  --metadata-label-text-color: var(--accent-color);
+  --metadata-input-text-color: var(--accent-color);
+  --tag-color: var(--accent-color);
+  --tag-background: var(--accent-color-trans);
+  --pill-cover-hover: color-mix(in srgb, var(--accent-color) 60%, transparent);
+  --background-modifier-border-focus: var(--accent-color);
+  --background-modifier-border: var(--accent-color-trans);
+  --background-modifier-hover: color-mix(
+    in srgb,
+    var(--accent-color) 60%,
+    transparent
+  );
+
+  color: var(--accent-color);
+  background-color: var(--page-color);
+}
+
+
+.page-rainbow {
+  /* Base colors */
+  --page-color: #1a1820;  /* Dark background with slight purple tint */
+  --accent-color: #c4a7ff;  /* Soft purple as main accent */
+  --accent-color-trans: color-mix(in srgb, var(--accent-color) 15%, transparent);
+
+  /* Heading gradients - soft rainbow progression */
+  --h1-gradient: linear-gradient(45deg, #ff9db4, #ffa8c5);  /* Soft pink/rose */
+  --h2-gradient: linear-gradient(45deg, #ffb088, #ffc299);  /* Soft orange/peach */
+  --h3-gradient: linear-gradient(45deg, #91e6b3, #a8edc4);  /* Soft mint/green */
+  --h4-gradient: linear-gradient(45deg, #8ac7ff, #99d1ff);  /* Soft blue */
+
+  /* Link colors - complementary pastels */
+  --link-color: #b4e6ff;          /* Soft sky blue */
+  --link-color-hover: #d1f0ff;    /* Lighter sky blue */
+  --link-unresolved-color: #ffb3b3; /* Soft coral */
+
+  /* Tag styling */
+  --tag-background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+  --tag-color: #c4a7ff;  /* Matching accent color */
+
+  /* Code block colors - pastel rainbow syntax */
+  --code-background: #1f1f2e;
+  --color-keyword: #ffb3d9;     /* Soft pink */
+  --color-function: #c4a7ff;    /* Soft purple */
+  --color-string: #b4e6ff;      /* Soft blue */
+  --color-comment: #a3a3c2;     /* Soft gray */
+  --color-variable: #d1f0ff;    /* Light blue */
+  --color-number: #91e6b3;      /* Soft green */
+  --color-constant: #ffc299;    /* Soft orange */
+  --color-class: #ffb088;       /* Soft peach */
+
+  /* Set dark mode */
+  color-scheme: dark;
+  
+  /* Image recoloring - soft purple tint */
+  --image-effect: brightness(0) saturate(100%) 
+      invert(80%) sepia(20%) saturate(1000%) 
+      hue-rotate(220deg) brightness(100%) contrast(90%);
+}
+
+/* ----------------------- Sunset Page Background ----------------------- */
+
+.page-sunset {
+  /* Base colors */
+  --page-color: var(--page-sunset);  /* Dark brown-black background */
+  --accent-color: #ff7e33;           /* Main accent color - warm orange */
+  --accent-color-trans: color-mix(
+      in srgb,
+      var(--accent-color) 15%,
+      transparent
+  );
+
+  --link-color: #f89f79;             /* Slightly darker orange for links */
+  --link-color-hover: #ff8f5e;       /* Lighter orange for hover */
+  --link-unresolved-color: #ff4545;  /* Red-orange for unresolved links */
+
+  /* Image filter for recoloring */
+  --image-effect: brightness(0) saturate(100%) 
+  invert(75%) sepia(42%) saturate(6158%) 
+  hue-rotate(334deg) brightness(103%) contrast(101%);
+
+  /* Set color scheme */
+  color-scheme: dark;
+
+}
+
+/* Image background for embeds */
+.embed-sunset img {
+  background-color: var(--page-sunset);
+}
+
+
+/* ----------------------- Purple Page Background ----------------------- */
+.page-purple {
+  background-color: #1a1625;  /* Dark purple-tinted background */
+  --page-color: var(--page-purple);
+  --accent-color: #b490ff;  /* Using existing purple pen color */
+  --accent-color-trans: color-mix(
+    in srgb,
+    var(--accent-color) 15%,
+    transparent
+  );
+  --image-effect: brightness(0) saturate(100%) invert(33%) sepia(59%)
+    saturate(2620%) hue-rotate(249deg) brightness(98%) contrast(93%);
+  color-scheme: dark;
+
+  /* Links with complementary colors */
+  --link-color: var(--pen-purple); /* #b490ff; */
+  --link-color-hover: #cdb1ff;
+  --link-unresolved-color: #ff6b6b;
+
+}
+
+.embed-purple img {
+  background-color: var(--page-color);
+}
+
+/* ----------------------- Brown Page Background ----------------------- */
+/* Defaults to yellow Pen */
+.page-brown {
+  background-color: #2c1404;
+  --page-color: var(--page-brown);
+  --accent-color: var(--pen-yellow);
+  --accent-color-trans: color-mix(
+    in srgb,
+    var(--accent-color) 15%,
+    transparent
+  );
+  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
+    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
+  color-scheme: dark;
+}
+.embed-brown img {
+  background-color: var(--page-brown);
+}
+
+/* ----------------------- Green Page Background ----------------------- */
+
+/* Defaults to lgreen Pen */
+.page-green {
+  background-color: #192108;
+  --page-color: var(--page-green);
+  --accent-color: var(--pen-lgreen);
+  --accent-color-trans: color-mix(
+    in srgb,
+    var(--accent-color) 15%,
+    transparent
+  );
+  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
+    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
+  color-scheme: dark;
+}
+.embed-green img {
+  background-color: var(--page-green);
+}
+
+/* ----------------------- DBlue Page Background ----------------------- */
+/* Defaults to dblue Pen */
+.page-dblue {
+  background-color: #070615;
+  --page-color: var(--page-dblue);
+  --accent-color: var(--pen-dblue);
+  --accent-color-trans: color-mix(
+    in srgb,
+    var(--accent-color) 15%,
+    transparent
+  );
+  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
+    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
+  color-scheme: dark;
+}
+.embed-dblue img {
+  background-color: var(--page-dblue);
+}
+
+/* ----------------------- Manila/Tan Page Background ----------------------- */
+/* Defaults to Black Pen */
+.page-manila {
+  --page-color: var(--page-manila);
+  --accent-color: var(--pen-black);
+  --accent-color-trans: color-mix(
+    in srgb,
+    var(--accent-color) 15%,
+    transparent
+  );
+  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
+    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
+  color-scheme: light;
+}
+.embed-manila img {
+  background-color: var(--page-manila);
+}
+
+/* --------------------------- White Page Background ------------------------ */
+/* Defaults to Black Pen */
+.page-white {
+  --page-color: var(--page-white);
+  --accent-color: var(--neutral-pen-black);
+  --accent-color-trans: color-mix(
+    in srgb,
+    var(--accent-color) 15%,
+    transparent
+  );
+  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
+    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
+  color-scheme: light;
+}
+.embed-white img {
+  background-color: var(--page-white);
+}
+
+/* -------------------------- Blueprint Styled Page ------------------------- */
+/* Defaults to White Pen */
+.page-blueprint {
+  --page-color: var(--page-blue);
+  --accent-color: var(--pen-white);
+  --accent-color-trans: color-mix(
+    in srgb,
+    var(--accent-color) 15%,
+    transparent
+  );
+  --image-effect: brightness(0) saturate(100%) invert(89%) sepia(1%)
+    saturate(2714%) hue-rotate(196deg) brightness(107%) contrast(98%);
+  color-scheme: dark;
+
+  --link-color: color-mix(in srgb, var(--pen-light-blue) 60%, var(--pen-white));
+  --link-color-hover: color-mix(
+    in srgb,
+    var(--pen-light-blue) 20%,
+    var(--pen-white)
+  );
+}
+.embed-blueprint img {
+  background-color: var(--page-blue);
+}
+
+
+/* Adds a grid layout on page background */
+.page-grid {
+  background-image: linear-gradient(
+      0deg,
+      transparent 0px,
+      var(--accent-color-trans) 1px,
+      var(--accent-color-trans) 2px,
+      transparent 3px
+    ),
+    linear-gradient(
+      90deg,
+      transparent calc(var(--grid-size) - 3px),
+      var(--accent-color-trans) calc(var(--grid-size) - 2px),
+      var(--accent-color-trans) calc(var(--grid-size) - 1px),
+      transparent var(--grid-size)
+    );
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+/* ------------------------------- Pen Colors ------------------------------- */
+/* Image Effects generated with:
+    https://angel-rs.github.io/css-color-filter-generator */
+
+/* SVGs */
+:is(
+    .page-white,
+    .page-rainbow,
+    .page-manila,
+    .page-blueprint,
+    .page-sunset,
+    .page-green,
+    .page-dblue,
+    .page-brown,
+    .page-purple,
+    .pen-white,
+    .pen-blue,
+    .pen-red,
+    .pen-green,
+    .pen-black,
+    .pen-gray,
+    .pen-purple,
+    .pen-lgreen,
+    .pen-dblue,
+    .pen-yellow
+  )
+  svg {
+  color: color-mix(in srgb, var(--accent-color) 60%, transparent);
+}
+
+/* Code Blocks */
+/* For dark themes, use GitHub dark theme colors */
+:is(.page-blueprint, 
+  .page-green,
+  .page-dblue,
+  .page-brown,
+  .page-purple,
+  .page-sunset) {
+  --color-keyword: #ffa657;     /* orange */
+  --color-function: #d2a8ff;    /* purple */
+  --color-string: #a5d6ff;      /* light blue */
+  --color-comment: #8b949e;     /* gray */
+  --color-variable: #c9d1d9;    /* light gray */
+  --color-number: #79c0ff;      /* blue */
+  --color-constant: #79c0ff;    /* blue */
+  --color-class: #ff7b72;       /* red */
+  --color-operator: #c9d1d9;    /* light gray */
+  --color-punctuation: #c9d1d9; /* light gray */
+}
+
+/* Common code properties for all themes */
+:is(.page-blueprint, 
+  .page-white, 
+  .page-manila, 
+  .page-green, 
+  .page-dblue, 
+  .page-brown, 
+  .page-purple,
+  .page-sunset,
+  .page-rainbow) {
+  --code-normal: var(--color-variable);
+  --code-comment: var(--color-comment);
+  --code-function: var(--color-function);
+  --code-keyword: var(--color-keyword);
+  --code-operator: var(--color-red);
+  --code-string: var(--color-string);
+  --code-number: var(--color-number);
+  --code-constant: var(--color-constant);
+  --code-class: var(--color-class);
+  --code-punctuation: var(--color-punctuation);
+}
+
+/* Light theme code backgrounds */
+:is(.page-white, .page-manila) {
+  --code-background: #f6f8fa;  /* GitHub light theme background */
+  
+  :is(code, .HyperMD-codeblock, .cm-inline-code) {
+    color: var(--code-normal);
+    background-color: var(--code-background);
+  }
+  
+  div > pre {
+    background-color: var(--code-background) !important;
+  }
+}
+
+/* Dark theme code backgrounds */
+:is(
+    .page-green, 
+    .page-dblue, 
+    .page-brown, 
+    .page-purple,
+    .page-sunset) {
+  --code-background: #161b22;  /* GitHub dark theme background */
+  
+  :is(code, .HyperMD-codeblock, .cm-inline-code) {
+    color: var(--code-normal);
+    background-color: var(--code-background);
+  }
+  
+  div > pre {
+    background-color: var(--code-background) !important;
+  }
+}
+
+/* Blueprint specific */
+.page-blueprint {
+  --code-background: #0d1117;  /* GitHub dark theme background */
+  
+  :is(code, .HyperMD-codeblock, .cm-inline-code) {
+    color: var(--code-normal);
+    background-color: var(--code-background);
+  }
+  
+  div > pre {
+    background-color: var(--code-background) !important;
+  }
+}
+
+/* Code block syntax highlighting */
+.cm-s-obsidian {
+  .cm-comment { color: var(--code-comment); }
+  .cm-keyword { color: var(--code-keyword); }
+  .cm-operator { color: var(--code-operator); }
+  .cm-string { color: var(--code-string); }
+  .cm-variable { color: var(--code-normal); }
+  .cm-variable-2 { color: var(--code-normal); }
+  .cm-variable-3 { color: var(--code-class); }
+  .cm-number { color: var(--code-number); }
+  .cm-def { color: var(--code-function); }
+  .cm-property { color: var(--code-normal); }
+  .cm-type { color: var(--code-class); }
+  /* .cm-atom { color: var(--code-constant); } */
+  .cm-punctuation { color: var(--code-punctuation); }
+}
+
+/* Markdown code block syntax */
+.markdown-rendered code {
+  color: var(--code-normal);
+  background-color: var(--code-background);
+}
+
+/* Inline code styling */
+.cm-inline-code {
+  color: var(--accent-color);
+  background-color: var(--accent-color);
+  padding: 0.2em 0.4em;
+  border-radius: 6px;  /* GitHub's border radius */
+}
+
+:is(.page-white, 
+  .page-manila, 
+  .page-blueprint, 
+  .page-green, 
+  .page-dblue, 
+  .page-brown, 
+  .page-purple,
+  .page-sunset,
+  .page-rainbow) {
+  --metadata-input-background-active: var(--accent-color-trans);
+}
+
+/* ------------------------------- Pen Colors ------------------------------- */
+
+.pen-white {
+  --accent-color: var(--pen-white);
+  --accent-color-trans: color-mix(in srgb, var(--pen-white) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(89%) sepia(1%)
+    saturate(2714%) hue-rotate(196deg) brightness(107%) contrast(98%);
+}
+.pen-blue {
+  --accent-color: var(--pen-blue);
+  --accent-color-trans: color-mix(in srgb, var(--pen-blue) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(36%) sepia(95%)
+    saturate(945%) hue-rotate(199deg) brightness(95%) contrast(95%);
+}
+.pen-red {
+  --accent-color: var(--pen-red);
+  --accent-color-trans: color-mix(in srgb, var(--pen-red) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(40%) sepia(41%)
+    saturate(1024%) hue-rotate(316deg) brightness(99%) contrast(94%);
+}
+.pen-green {
+  --accent-color: var(--pen-green);
+  --accent-color-trans: color-mix(in srgb, var(--pen-green) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(52%) sepia(60%)
+    saturate(2521%) hue-rotate(105deg) brightness(96%) contrast(84%);
+}
+.pen-black {
+  --accent-color: var(--pen-black);
+  --accent-color-trans: color-mix(in srgb, var(--pen-black) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(14%) sepia(19%)
+    saturate(296%) hue-rotate(5deg) brightness(90%) contrast(96%);
+}
+.pen-gray {
+  --accent-color: var(--pen-gray);
+  --accent-color-trans: color-mix(in srgb, var(--pen-gray) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(35%) sepia(13%)
+    saturate(189%) hue-rotate(5deg) brightness(96%) contrast(86%);
+}
+.pen-purple {
+  --accent-color: var(--pen-purple);
+  --accent-color-trans: color-mix(in srgb, var(--pen-purple) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(33%) sepia(59%)
+    saturate(2620%) hue-rotate(249deg) brightness(98%) contrast(93%);
+}
+.pen-lgreen {
+  --accent-color: var(--pen-lgreen);
+  --accent-color-trans: color-mix(in srgb, var(--pen-lgreen) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(33%) sepia(59%)
+    saturate(2620%) hue-rotate(249deg) brightness(98%) contrast(93%);
+}
+.pen-dblue {
+  --accent-color: var(--pen-dblue);
+  --accent-color-trans: color-mix(in srgb, var(--pen-dblue) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(33%) sepia(59%)
+    saturate(2620%) hue-rotate(249deg) brightness(98%) contrast(93%);
+}
+.pen-yellow {
+  --accent-color: var(--pen-yellow);
+  --accent-color-trans: color-mix(in srgb, var(--pen-yellow) 15%, transparent);
+  color: var(--accent-color);
+  --hr-color: var(--accent-color);
+  --image-effect: brightness(0) saturate(100%) invert(33%) sepia(59%)
+    saturate(2620%) hue-rotate(249deg) brightness(98%) contrast(93%);
+}
+
+/* ------------- Markdown HR Setting -------------  */
+
+.markdown-preview-view hr {
+  margin: 0.5em auto;
+}
+
+/* ============= Theme Gradients =============  */
+:is(.page-purple, 
+  .page-green, 
+  .page-dblue, 
+  .page-brown, 
+  .page-sunset) {
+  /* Purple Theme */
+  &.page-purple {
+      --h1-gradient: linear-gradient(45deg, #b490ff, #9b4ff0);
+      --h2-gradient: linear-gradient(45deg, #9d7ae6, #8449d8);
+      --h3-gradient: linear-gradient(45deg, #8666cc, #6d3dbf);
+      --h4-gradient: linear-gradient(45deg, #7352b3, #5631a6);
+  }
+
+  /* Green Theme */
+  &.page-green {
+      --h1-gradient: linear-gradient(45deg, #92e649, #15b64f);
+      --h2-gradient: linear-gradient(45deg, #7ed63c, #13a348);
+      --h3-gradient: linear-gradient(45deg, #6bc62f, #119141);
+      --h4-gradient: linear-gradient(45deg, #58b622, #0f7f3a);
+  }
+
+  /* Dark Blue Theme */
+  &.page-dblue {
+      --h1-gradient: linear-gradient(45deg, #54b6f8, #3b87f0);
+      --h2-gradient: linear-gradient(45deg, #4aa6e8, #3579dd);
+      --h3-gradient: linear-gradient(45deg, #4096d8, #2f6bca);
+      --h4-gradient: linear-gradient(45deg, #3686c8, #295db7);
+  }
+
+  /* Brown Theme */
+  &.page-brown {
+      --h1-gradient: linear-gradient(45deg, #ffd63d, #e6a23c);
+      --h2-gradient: linear-gradient(45deg, #ebc235, #d49235);
+      --h3-gradient: linear-gradient(45deg, #d7ae2d, #c2832e);
+      --h4-gradient: linear-gradient(45deg, #c39a25, #af7427);
+  }
+
+  /* Sunset Theme */
+  &.page-sunset {
+    /* Heading gradients - warmer, more vibrant for dark theme */
+    --h1-gradient: linear-gradient(45deg, #ff9966, #ff7e33);
+    --h2-gradient: linear-gradient(45deg, #ff8c52, #ff702e);
+    --h3-gradient: linear-gradient(45deg, #ff7f3f, #ff6229);
+    --h4-gradient: linear-gradient(45deg, #ff722c, #ff5424);
+  }
+}
+
+/* For Preview Mode */
+.markdown-preview-view:is(
+  .page-purple, 
+  .page-green, 
+  .page-dblue, 
+  .page-brown, 
+  .page-sunset,
+  .page-rainbow) {
+  --h1-color: transparent;
+  --h2-color: transparent;
+  --h3-color: transparent;
+  --h4-color: transparent;
+
+  h1, h2, h3, h4 {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+  }
+
+  h1 { background-image: var(--h1-gradient); }
+  h2 { background-image: var(--h2-gradient); }
+  h3 { background-image: var(--h3-gradient); }
+  h4 { background-image: var(--h4-gradient); }
+}
+
+/* For Edit Mode */
+.markdown-source-view:is(
+  .page-purple, 
+  .page-green, 
+  .page-dblue, 
+  .page-brown, 
+  .page-sunset,
+  .page-rainbow) {
+
+  .cm-header-1 { 
+      background: var(--h1-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+  }
+  .cm-header-2 {
+      background: var(--h2-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+  }
+  .cm-header-3 {
+      background: var(--h3-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+  }
+  .cm-header-4 {
+      background: var(--h4-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+  }
+}
+
+/* Add hover effect */
+:is(
+  .page-purple, 
+  .page-green, 
+  .page-dblue, 
+  .page-brown, 
+  .page-sunset,
+  .page-rainbow) :is(h1, h2, h3, h4):hover {
+  filter: brightness(1.2);
+  transition: filter 0.3s ease;
+}
+
+/* ======= INLINE CODE SETTINGS ========= */
+/* Inline code styling for all page themes - excluding code blocks */
+:is(.page-rainbow, 
+    .page-purple, 
+    .page-sunset, 
+    .page-manila, 
+    .page-white, 
+    .page-blueprint, 
+    .page-green, 
+    .page-dblue, 
+    .page-brown) :not(pre) > code,
+:is(.page-rainbow, 
+    .page-purple, 
+    .page-sunset, 
+    .page-manila, 
+    .page-white, 
+    .page-blueprint, 
+    .page-green, 
+    .page-dblue, 
+    .page-brown) .inline-code {
+    color: var(--accent-color) !important;
+    background-color: color-mix(in srgb, var(--accent-color) 15%, transparent) !important;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+}
+
+/* For CM6 editor inline code */
+:is(.page-rainbow, 
+    .page-purple, 
+    .page-sunset, 
+    .page-manila, 
+    .page-white, 
+    .page-blueprint, 
+    .page-green, 
+    .page-dblue, 
+    .page-brown) .cm-inline-code {
+    color: var(--accent-color) !important;
+    background-color: color-mix(in srgb, var(--accent-color) 15%, transparent) !important;
+}
+
+/* Optional: hover effect for inline code */
+:is(.page-rainbow, 
+    .page-purple, 
+    .page-sunset, 
+    .page-manila, 
+    .page-white, 
+    .page-blueprint, 
+    .page-green, 
+    .page-dblue, 
+    .page-brown) :not(pre) > code:hover,
+:is(.page-rainbow, 
+    .page-purple, 
+    .page-sunset, 
+    .page-manila, 
+    .page-white, 
+    .page-blueprint, 
+    .page-green, 
+    .page-dblue, 
+    .page-brown) .inline-code:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 25%, transparent) !important;
+}
